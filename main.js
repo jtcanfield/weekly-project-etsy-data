@@ -30,7 +30,7 @@ function question2 () {
       arrayOfItems.push(data[i].title)
     }
   }
-  return console.log(arrayOfItems);
+  return console.log(arrayOfItems.join('\r\n'));
 }
 
 
@@ -57,7 +57,7 @@ function question4 () {
       woodItems.push(data[i].title + " is made of wood")
     }
   }
-  return console.log(woodItems);
+  return console.log(woodItems.join('\r\n'));
 }
 
 
@@ -65,6 +65,15 @@ function question4 () {
 //    Display the name, number of items and the items it is made of.
 function question5 () {
   // Answer:
+  let manyMaterials = [];
+  for (let i = 0; i < data.length; i++){
+    if (data[i].materials.length >= 8){
+      manyMaterials.push(data[i].title + " has " + data[i].materials.length + " materials:")
+      for (let x = 0; x < data[i].materials.length; x++)
+      manyMaterials.push("-" + data[i].materials[x])
+    }
+  }
+  return console.log(manyMaterials.join('\r\n'));
 }
 
 
@@ -72,4 +81,11 @@ function question5 () {
 // Answer:
 function question6 () {
   // Answer:
+  let madePersonally = 0;
+  for (let i = 0; i < data.length; i++){
+    if (data[i].who_made === "i_did"){
+      madePersonally += 1;
+    }
+  }
+  return console.log(madePersonally + " items were made by their sellers.");
 }
